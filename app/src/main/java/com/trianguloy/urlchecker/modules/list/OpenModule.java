@@ -13,6 +13,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.LinearLayout;
 import android.widget.PopupMenu;
 import android.widget.Toast;
 
@@ -149,6 +150,8 @@ class OpenDialog extends AModuleDialog implements View.OnClickListener, PopupMen
     private PopupMenu popup;
     private ImageButton btn_ctabs;
     private ImageButton btn_presetflags;
+    private ImageButton expand;
+    private LinearLayout box;
 
 
     public OpenDialog(MainDialog dialog) {
@@ -194,6 +197,12 @@ class OpenDialog extends AModuleDialog implements View.OnClickListener, PopupMen
         btn_open.setOnClickListener(this);
         btn_open.setOnLongClickListener(this);
 
+        box = views.findViewById(R.id.advanced);
+        expand = views.findViewById(R.id.expand);
+        expand.setOnClickListener(this);
+        box.setVisibility(View.VISIBLE);
+        toggleAdvancedOpts();
+
         btn_openWith = views.findViewById(R.id.open_with);
         btn_openWith.setOnClickListener(this);
 
@@ -224,6 +233,9 @@ class OpenDialog extends AModuleDialog implements View.OnClickListener, PopupMen
                 break;
             case R.id.presetflags:
                 rotatePresetFlags();
+                break;
+            case R.id.expand:
+                toggleAdvancedOpts();
                 break;
             case R.id.open:
                 openUrl(0);
@@ -432,6 +444,16 @@ class OpenDialog extends AModuleDialog implements View.OnClickListener, PopupMen
         }
         btn_presetflags.setImageResource(image);
         presetState = state;
+    }
+
+    /**
+     * Shows/hides the advanced options
+     */
+    private void toggleAdvancedOpts(){
+        box.setVisibility(box.getVisibility() == View.GONE ? View.VISIBLE : View.GONE);
+        expand.setImageResource(box.getVisibility() == View.VISIBLE ?
+                R.drawable.arrow_down :
+                R.drawable.arrow_right);
     }
 }
 
