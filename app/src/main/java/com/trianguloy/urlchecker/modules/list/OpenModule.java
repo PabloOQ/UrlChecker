@@ -58,6 +58,41 @@ public class OpenModule extends AModuleData {
         }
     }
 
+    enum PresetFlagsValues {
+        AUTO(Key.AUTO),
+        EXCLUDE_RECENTS(Key.EXCLUDE_RECENTS),
+        INSIDE(Key.INSIDE);
+
+        public final int key;
+        static private PresetFlagsValues[] values = null;
+
+        PresetFlagsValues(int key) {
+            this.key = key;
+        }
+
+        // Combinations of flags are always unique, this way is easier to read and keep track of
+        private static class Key {
+            public static final int AUTO = 0xFFFFFFFF;  // Will never match
+            public static final int EXCLUDE_RECENTS = Intent.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS;
+            public static final int INSIDE = Intent.FLAG_ACTIVITY_NEW_TASK |
+                    Intent.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS |
+                    Intent.FLAG_ACTIVITY_BROUGHT_TO_FRONT;
+        }
+
+        // To get enum out of key
+        public static PresetFlagsValues getFlag(int key){
+            if (values == null){    // init if necessary
+                values = PresetFlagsValues.values();
+            }
+            for (PresetFlagsValues e: values) {
+                if (e.key == key){
+                    return e;
+                }
+            }
+            return null;
+        }
+    }
+
     public static GenericPref.Int CTABS_PREF() {
         return new GenericPref.Int("open_ctabs", CtabsValues.AUTO.key);
     }
