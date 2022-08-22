@@ -28,6 +28,7 @@ import com.trianguloy.urlchecker.utilities.LastOpened;
 import com.trianguloy.urlchecker.utilities.PackageUtilities;
 import com.trianguloy.urlchecker.utilities.UrlUtilities;
 
+import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -92,6 +93,8 @@ class OpenDialog extends AModuleDialog implements View.OnClickListener, PopupMen
     private static final String CTABS_EXTRA = "android.support.customtabs.extra.SESSION";
 
     private LastOpened lastOpened;
+
+    private final GenericPref.Int ctabsPref = OpenModule.CTABS_PREF();
     private boolean ctabs = false;
 
     private List<String> packages;
@@ -103,6 +106,7 @@ class OpenDialog extends AModuleDialog implements View.OnClickListener, PopupMen
 
     public OpenDialog(MainDialog dialog) {
         super(dialog);
+        ctabsPref.init(dialog);
     }
 
     @Override
@@ -112,10 +116,15 @@ class OpenDialog extends AModuleDialog implements View.OnClickListener, PopupMen
 
     @Override
     public void onInitialize(View views) {
+        Intent intent = getActivity().getIntent();
+
         btn_ctabs = views.findViewById(R.id.ctabs);
         btn_ctabs.setOnClickListener(this);
         btn_ctabs.setOnLongClickListener(this);
-        setCtabs(getActivity().getIntent().hasExtra(CTABS_EXTRA));
+        // If auto we get it from the intent, if not we only check if it is on, if it is not it means is off
+        setCtabs(ctabsPref.get() == OpenModule.CtabsValues.AUTO.key ?
+                intent.hasExtra(CTABS_EXTRA) :
+                ctabsPref.get() == OpenModule.CtabsValues.ON.key);
 
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.JELLY_BEAN_MR2) {
             btn_ctabs.setVisibility(View.GONE);
@@ -326,8 +335,11 @@ class OpenDialog extends AModuleDialog implements View.OnClickListener, PopupMen
 
 class OpenConfig extends AModuleConfig {
 
+    private final GenericPref.Int ctabsPref = OpenModule.CTABS_PREF();
+
     public OpenConfig(ConfigActivity activity) {
         super(activity);
+        ctabsPref.init(activity);
     }
 
     @Override
@@ -342,5 +354,16 @@ class OpenConfig extends AModuleConfig {
 
     @Override
     public void onInitialize(View views) {
+        Context cntx = views.getContext();
+
+        List<GenericPref.Int.AdapterPair> ctabsElements = new LinkedList<>();
+        ctabsElements.add(new GenericPref.Int.AdapterPair(OpenModule.CtabsValues.AUTO.key,
+                cntx.getString(R.string.auto)));
+        ctabsElements.add(new GenericPref.Int.AdapterPair(OpenModule.CtabsValues.ON.key,
+                cntx.getString(R.string.enabled)));
+        ctabsElements.add(new GenericPref.Int.AdapterPair(OpenModule.CtabsValues.OFF.key,
+                cntx.getString(R.string.disabled)));
+        ctabsPref.attachToSpinner(views.findViewById(R.id.ctabs_pref),
+                ctabsElements);
     }
 }
