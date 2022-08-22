@@ -23,6 +23,7 @@ import com.trianguloy.urlchecker.modules.AModuleData;
 import com.trianguloy.urlchecker.modules.AModuleDialog;
 import com.trianguloy.urlchecker.modules.DescriptionConfig;
 import com.trianguloy.urlchecker.url.UrlData;
+import com.trianguloy.urlchecker.utilities.GenericPref;
 import com.trianguloy.urlchecker.utilities.LastOpened;
 import com.trianguloy.urlchecker.utilities.PackageUtilities;
 import com.trianguloy.urlchecker.utilities.UrlUtilities;
@@ -33,6 +34,32 @@ import java.util.List;
  * This module contains an open and share buttons
  */
 public class OpenModule extends AModuleData {
+
+    /**
+     * Values for the config
+     */
+    enum CtabsValues {
+        AUTO(Key.AUTO),
+        ON(Key.ON),
+        OFF(Key.OFF);
+
+        public final int key;
+
+        CtabsValues(int key) {
+            this.key = key;
+        }
+
+        // Values to be stored
+        private static class Key {
+            public static final int AUTO = 2;
+            public static final int ON = 1;
+            public static final int OFF = 0;
+        }
+    }
+
+    public static GenericPref.Int CTABS_PREF() {
+        return new GenericPref.Int("open_ctabs", CtabsValues.AUTO.key);
+    }
 
     @Override
     public String getId() {
