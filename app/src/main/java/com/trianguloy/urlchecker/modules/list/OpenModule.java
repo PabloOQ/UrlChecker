@@ -56,7 +56,7 @@ public class OpenModule extends AModuleData {
 
     @Override
     public AModuleConfig getConfig(ConfigActivity cntx) {
-        return new DescriptionConfig(R.string.mOpen_desc);
+        return new OpenConfig(cntx);
     }
 }
 
@@ -294,4 +294,26 @@ class OpenDialog extends AModuleDialog implements View.OnClickListener, PopupMen
         ctabs = state;
     }
 
+}
+
+
+class OpenConfig extends AModuleConfig {
+
+    public OpenConfig(ConfigActivity activity) {
+        super(activity);
+    }
+
+    @Override
+    public boolean canBeEnabled() {
+        return true;
+    }
+
+    @Override
+    public int getLayoutId() {
+        return R.layout.config_open;
+    }
+
+    @Override
+    public void onInitialize(View views) {
+    }
 }
