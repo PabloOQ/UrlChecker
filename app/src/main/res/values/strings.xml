@@ -64,6 +64,10 @@ Note: if you edit the patterns, new built-in patterns from app updates will not 
 - Share button: Press the button to share the link. Long press to quickly copy to clipboard.
 This module can't be disabled."</string>
     <string name="mOpen_ctabsSetting">Custom tabs default state:</string>
+    <string name="mOpen_presetFlagsSetting">Open presets default state:</string>
+    <string name="mOpen_rotatePresetFlags">Rotate open presets</string>
+    <string name="mOpen_optionExcludeRecents">New window</string>
+    <string name="mOpen_optionInside">Temporal</string>
     <string name="mOpen_with">Open with %s</string>
     <string name="mOpen_open">Open</string>
     <string name="mOpen_share">Share</string>
