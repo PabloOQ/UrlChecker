@@ -25,7 +25,7 @@ jobs:
         env:
           fileName: "new_file.json"
           fileURL: "https://rules2.clearurls.xyz/data.minify.json"
-          filePath: "./app/src/main/assets/"
+          filePath: "./app/src/main/assets/no_folder/"
           hashURL: "https://rules2.clearurls.xyz/rules.minify.hash"
 
       - name: Commit everything and push
