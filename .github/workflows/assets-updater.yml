@@ -4,6 +4,7 @@ name: Assets updater
 on:
   push:
   
+  
 permissions:
   contents: write
 
