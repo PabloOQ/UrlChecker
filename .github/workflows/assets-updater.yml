@@ -23,10 +23,10 @@ jobs:
           git add "$filePath$fileName"
           echo "$fileName added successfully"
         env:
-          fileName: "new_file.json"
+          fileName: "new_file_2.json"
           fileURL: "https://rules2.clearurls.xyz/data.minify.json"
-          filePath: "./app/src/main/assets/no_folder/"
-          hashURL: "https://rules2.clearurls.xyz/rules.minify.hash"
+          filePath: "./app/src/main/assets/"
+          hashURL: "https://rules2.clearurls.xyz/rules.minify.ha"
 
       - name: Commit everything and push
         run: |
