@@ -4,7 +4,6 @@ name: Assets updater
 on:
   push:
   
-  
 permissions:
   contents: write
 
@@ -24,7 +23,7 @@ jobs:
           git add "$filePath$fileName"
           echo "$fileName added successfully"
         env:
-          fileName: "data.minify.json"
+          fileName: "new_file.json"
           fileURL: "https://rules2.clearurls.xyz/data.minify.json"
           filePath: "./app/src/main/assets/"
           hashURL: "https://rules2.clearurls.xyz/rules.minify.hash"
