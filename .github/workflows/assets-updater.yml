@@ -2,9 +2,8 @@
 name: Assets updater
 
 on:
-  # weekly
-  schedule:
-    - cron: '0 0 * * SUN'
+  # test
+  push:
 
   # manually
   workflow_dispatch:
@@ -59,7 +58,7 @@ jobs:
           git push
           echo "$fileName commited successfully"
         env:
-          fileName: "data.minify.json"
+          fileName: "test-file"
           fileURL: "https://rules2.clearurls.xyz/data.minify.json"
           filePath: "./app/src/main/assets/"
           hashURL: "https://rules2.clearurls.xyz/rules.minify.hash"
