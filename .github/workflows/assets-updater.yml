@@ -84,7 +84,7 @@ jobs:
             fi
           else
             # No differences
-            git push origin --delete $workingBranch
+            # git push origin --delete $workingBranch
             echo "Nothing updated, deleting branch on origin"
           fi
         env:
