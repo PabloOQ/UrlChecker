@@ -3,7 +3,6 @@ name: Assets updater
 
 on:
   push:
-
   # manually
   workflow_dispatch:
 
