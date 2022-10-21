@@ -57,7 +57,7 @@ jobs:
           git push
           echo "$fileName commited successfully"
         env:
-          fileName: "test.json"
+          fileName: "data.minify.json"
           fileURL: "https://rules2.clearurls.xyz/data.minify.json"
           filePath: "./app/src/main/assets/"
           hashURL: "https://rules2.clearurls.xyz/rules.minify.hash"
