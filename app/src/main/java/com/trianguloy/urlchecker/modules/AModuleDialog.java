@@ -17,11 +17,13 @@ public abstract class AModuleDialog implements Fragment {
     // ------------------- private data -------------------
 
     private final MainDialog dialog;
+    private final String id;
 
     // ------------------- initialization -------------------
 
-    public AModuleDialog(MainDialog dialog) {
+    public AModuleDialog(MainDialog dialog, String id) {
         this.dialog = dialog;
+        this.id = id;
     }
 
     // ------------------- abstract functions -------------------
@@ -109,4 +111,7 @@ public abstract class AModuleDialog implements Fragment {
         dialog.setModuleVisibility(this, visible);
     }
 
+    public final String getId() {
+        return id;
+    }
 }

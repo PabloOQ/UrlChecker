@@ -47,7 +47,7 @@ public class VirusTotalModule extends AModuleData {
 
     @Override
     public AModuleDialog getDialog(MainDialog cntx) {
-        return new VirusTotalDialog(cntx);
+        return new VirusTotalDialog(cntx, getId());
     }
 
     @Override
@@ -101,8 +101,8 @@ class VirusTotalDialog extends AModuleDialog {
 
     private final GenericPref.Str api_key;
 
-    public VirusTotalDialog(MainDialog dialog) {
-        super(dialog);
+    public VirusTotalDialog(MainDialog dialog, String id) {
+        super(dialog, id);
         api_key = VirusTotalModule.API_PREF(dialog);
     }
 

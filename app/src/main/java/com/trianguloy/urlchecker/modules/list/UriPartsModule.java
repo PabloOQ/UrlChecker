@@ -41,7 +41,7 @@ public class UriPartsModule extends AModuleData {
 
     @Override
     public AModuleDialog getDialog(MainDialog cntx) {
-        return new UriPartsDialog(cntx);
+        return new UriPartsDialog(cntx, getId());
     }
 
     @Override
@@ -55,8 +55,8 @@ class UriPartsDialog extends AModuleDialog {
     private LinearLayout box;
     private final List<String> expandedGroups = new ArrayList<>();
 
-    public UriPartsDialog(MainDialog dialog) {
-        super(dialog);
+    public UriPartsDialog(MainDialog dialog, String id) {
+        super(dialog, id);
     }
 
     @Override

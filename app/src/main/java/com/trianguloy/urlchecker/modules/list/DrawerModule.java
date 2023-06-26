@@ -30,7 +30,7 @@ public class DrawerModule extends AModuleData {
 
     @Override
     public AModuleDialog getDialog(MainDialog cntx) {
-        return new DrawerDialog(cntx);
+        return new DrawerDialog(cntx, getId());
     }
 
     @Override
@@ -43,8 +43,8 @@ class DrawerDialog extends AModuleDialog {
     private ImageView button;
     private MainDialog dialog;
 
-    public DrawerDialog(MainDialog dialog){
-        super(dialog);
+    public DrawerDialog(MainDialog dialog, String id){
+        super(dialog, id);
         this.dialog = dialog;
     }
 

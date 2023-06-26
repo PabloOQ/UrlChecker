@@ -51,7 +51,7 @@ public class StatusModule extends AModuleData {
 
     @Override
     public AModuleDialog getDialog(MainDialog cntx) {
-        return new StatusDialog(cntx);
+        return new StatusDialog(cntx, getId());
     }
 
     @Override
@@ -93,8 +93,8 @@ class StatusDialog extends AModuleDialog {
     private GenericPref.Bool autoRedir;
     private GenericPref.Str autoCheck;
 
-    public StatusDialog(MainDialog dialog) {
-        super(dialog);
+    public StatusDialog(MainDialog dialog, String id) {
+        super(dialog, id);
     }
 
     @Override

@@ -64,7 +64,7 @@ public class OpenModule extends AModuleData {
 
     @Override
     public AModuleDialog getDialog(MainDialog cntx) {
-        return new OpenDialog(cntx);
+        return new OpenDialog(cntx, getId());
     }
 
     @Override
@@ -92,8 +92,8 @@ class OpenDialog extends AModuleDialog {
     private Menu menu;
     private PopupMenu popup;
 
-    public OpenDialog(MainDialog dialog) {
-        super(dialog);
+    public OpenDialog(MainDialog dialog, String id) {
+        super(dialog, id);
         cTabs = new CTabs(dialog);
         incognito = new Incognito(dialog);
         closeOpenPref = OpenModule.CLOSEOPEN_PREF(dialog);

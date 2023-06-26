@@ -44,7 +44,7 @@ public class PatternModule extends AModuleData {
 
     @Override
     public AModuleDialog getDialog(MainDialog cntx) {
-        return new PatternDialog(cntx);
+        return new PatternDialog(cntx, getId());
     }
 
     @Override
@@ -91,8 +91,8 @@ class PatternDialog extends AModuleDialog {
 
     private final List<Message> messages = new ArrayList<>();
 
-    public PatternDialog(MainDialog dialog) {
-        super(dialog);
+    public PatternDialog(MainDialog dialog, String id) {
+        super(dialog, id);
         catalog = new PatternCatalog(dialog);
         regexFix = new RegexFix(dialog);
     }

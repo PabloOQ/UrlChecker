@@ -35,7 +35,7 @@ public class HostsModule extends AModuleData {
 
     @Override
     public AModuleDialog getDialog(MainDialog cntx) {
-        return new HostsDialog(cntx);
+        return new HostsDialog(cntx, getId());
     }
 
     @Override
@@ -79,8 +79,8 @@ class HostsDialog extends AModuleDialog {
 
     private TextView text;
 
-    public HostsDialog(MainDialog dialog) {
-        super(dialog);
+    public HostsDialog(MainDialog dialog, String id) {
+        super(dialog, id);
         hosts = new Hosts(dialog);
     }
 

@@ -57,7 +57,7 @@ public class ClearUrlModule extends AModuleData {
 
     @Override
     public AModuleDialog getDialog(MainDialog cntx) {
-        return new ClearUrlDialog(cntx);
+        return new ClearUrlDialog(cntx, getId());
     }
 
     @Override
@@ -114,8 +114,8 @@ class ClearUrlDialog extends AModuleDialog {
     private String cleared = null;
     private Data data = null;
 
-    public ClearUrlDialog(MainDialog dialog) {
-        super(dialog);
+    public ClearUrlDialog(MainDialog dialog, String id) {
+        super(dialog, id);
         allowReferral = ClearUrlModule.REFERRAL_PREF(dialog);
         verbose = ClearUrlModule.VERBOSE_PREF(dialog);
         auto = ClearUrlModule.AUTO_PREF(dialog);

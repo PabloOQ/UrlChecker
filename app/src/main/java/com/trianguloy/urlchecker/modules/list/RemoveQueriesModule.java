@@ -44,7 +44,7 @@ public class RemoveQueriesModule extends AModuleData {
 
     @Override
     public AModuleDialog getDialog(MainDialog cntx) {
-        return new RemoveQueriesDialog(cntx);
+        return new RemoveQueriesDialog(cntx, getId());
     }
 
     @Override
@@ -59,8 +59,8 @@ class RemoveQueriesDialog extends AModuleDialog {
     private Button remove;
     private LinearLayout box;
 
-    public RemoveQueriesDialog(MainDialog dialog) {
-        super(dialog);
+    public RemoveQueriesDialog(MainDialog dialog, String id) {
+        super(dialog, id);
     }
 
     @Override

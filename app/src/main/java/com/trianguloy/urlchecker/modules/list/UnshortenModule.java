@@ -40,7 +40,7 @@ public class UnshortenModule extends AModuleData {
 
     @Override
     public AModuleDialog getDialog(MainDialog cntx) {
-        return new UnshortenDialog(cntx);
+        return new UnshortenDialog(cntx, getId());
     }
 
     @Override
@@ -56,8 +56,8 @@ class UnshortenDialog extends AModuleDialog {
 
     private Thread thread = null;
 
-    public UnshortenDialog(MainDialog dialog) {
-        super(dialog);
+    public UnshortenDialog(MainDialog dialog, String id) {
+        super(dialog, id);
     }
 
     @Override

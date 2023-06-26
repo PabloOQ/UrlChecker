@@ -32,7 +32,7 @@ public class TextInputModule extends AModuleData {
 
     @Override
     public AModuleDialog getDialog(MainDialog cntx) {
-        return new TextInputDialog(cntx);
+        return new TextInputDialog(cntx, getId());
     }
 
     @Override
@@ -48,8 +48,8 @@ class TextInputDialog extends AModuleDialog {
 
     private EditText edtxt_url;
 
-    public TextInputDialog(MainDialog dialog) {
-        super(dialog);
+    public TextInputDialog(MainDialog dialog, String id) {
+        super(dialog, id);
     }
 
     @Override

@@ -40,7 +40,7 @@ public class DebugModule extends AModuleData {
 
     @Override
     public AModuleDialog getDialog(MainDialog cntx) {
-        return new DebugDialog(cntx);
+        return new DebugDialog(cntx, getId());
     }
 
     @Override
@@ -54,8 +54,8 @@ class DebugDialog extends AModuleDialog {
     private TextView textView;
     private String intentUri;
 
-    public DebugDialog(MainDialog dialog) {
-        super(dialog);
+    public DebugDialog(MainDialog dialog, String id) {
+        super(dialog, id);
     }
 
     @Override

@@ -34,7 +34,7 @@ public class HistoryModule extends AModuleData {
 
     @Override
     public AModuleDialog getDialog(MainDialog cntx) {
-        return new HistoryDialog(cntx);
+        return new HistoryDialog(cntx, getId());
     }
 
     @Override
@@ -57,8 +57,8 @@ class HistoryDialog extends AModuleDialog {
 
     // ------------------- internal -------------------
 
-    public HistoryDialog(MainDialog dialog) {
-        super(dialog);
+    public HistoryDialog(MainDialog dialog, String id) {
+        super(dialog, id);
     }
 
     @Override

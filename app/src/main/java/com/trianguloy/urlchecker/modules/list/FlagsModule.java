@@ -70,7 +70,7 @@ public class FlagsModule extends AModuleData {
 
     @Override
     public AModuleDialog getDialog(MainDialog cntx) {
-        return new FlagsDialog(cntx);
+        return new FlagsDialog(cntx, getId());
     }
 
     @Override
@@ -93,8 +93,8 @@ class FlagsDialog extends AModuleDialog {
 
     private JSONObject groups;
 
-    public FlagsDialog(MainDialog dialog) {
-        super(dialog);
+    public FlagsDialog(MainDialog dialog, String id) {
+        super(dialog, id);
         defaultFlags = new Flags(getActivity().getIntent().getFlags());
         currentFlags = new Flags();
     }

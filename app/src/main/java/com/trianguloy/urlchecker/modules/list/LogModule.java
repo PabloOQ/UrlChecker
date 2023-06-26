@@ -41,7 +41,7 @@ public class LogModule extends AModuleData {
 
     @Override
     public AModuleDialog getDialog(MainDialog cntx) {
-        return new LogDialog(cntx);
+        return new LogDialog(cntx, getId());
     }
 
     @Override
@@ -54,8 +54,8 @@ class LogDialog extends AModuleDialog {
 
     private final GenericPref.Str log;
 
-    public LogDialog(MainDialog dialog) {
-        super(dialog);
+    public LogDialog(MainDialog dialog, String id) {
+        super(dialog, id);
         log = LogModule.LOG_DATA(dialog);
     }
 

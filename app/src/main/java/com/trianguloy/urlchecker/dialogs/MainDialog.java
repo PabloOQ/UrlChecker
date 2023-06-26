@@ -125,22 +125,35 @@ public class MainDialog extends Activity {
             }
 
             // third notify for final changes
-            for (var module : modules.keySet()) {
+            var modSet = modules.keySet();
+            var drawerMod = modSet.stream()
+                    .filter(e -> e.getId().equals(new DrawerModule().getId()))
+                    .findFirst()
+                    .orElse(null);
+            for (var module : modSet) {
+                // skip drawer, technically not needed, it will overwrite itself later
+                if (drawerMod == module) continue;
                 // skip own if required
                 if (!urlData.triggerOwn && module == urlData.trigger) continue;
-                try {
-                    module.onDisplayUrl(urlData);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                    AndroidUtils.assertError("Exception in onDisplayUrl for module " + module.getClass().getName());
-                }
+                onDisplayUrl(urlData, module);
             }
+            // drawer mod should display last
+            if (drawerMod != null) onDisplayUrl(urlData, drawerMod);
 
             break;
         }
 
         // end, reset
         updating = 0;
+    }
+
+    private void onDisplayUrl(UrlData urlData, AModuleDialog module){
+        try {
+            module.onDisplayUrl(urlData);
+        } catch (Exception e) {
+            e.printStackTrace();
+            AndroidUtils.assertError("Exception in onDisplayUrl for module " + module.getClass().getName());
+        }
     }
 
     /**
