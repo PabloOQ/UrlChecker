@@ -347,6 +347,16 @@ public class MainDialog extends Activity {
         setDrawerVisibility(getDrawerVisibility() == View.GONE ? View.VISIBLE : View.GONE);
     }
 
+    public boolean anyDrawerChildVisible(){
+        int childCount = ll_hidden_mods.getChildCount();
+        for (int i = 0; i < childCount; i++) {
+            if (ll_hidden_mods.getChildAt(i).getVisibility() == View.VISIBLE){
+                return true;
+            }
+        }
+        return false;
+    }
+
     /* ------------------- its a secret! ------------------- */
 
     /**
