@@ -104,6 +104,8 @@ public class Incognito {
             // https://source.chromium.org/chromium/chromium/src/+/refs/heads/main:chrome/android/java/src/org/chromium/chrome/browser/IntentHandler.java;l=988;drc=fb3fab0be2804a2864783c326518f1acb0402968
             JavaUtils.Function<Intent, Boolean> setIncognito = (intent) -> {
                 intent.setComponent(new ComponentName(intent.getPackage(), "org.chromium.chrome.browser.incognito.IncognitoTabLauncher"));
+                // I got a case in API 30 where without this flag, the activity wouldn't launch
+                intent.setFlags(intent.getFlags() | Intent.FLAG_ACTIVITY_NEW_TASK);
                 return true;
             };
 
@@ -186,6 +188,14 @@ public class Incognito {
         }
     }
 
+    /**
+     * Applies {@link #apply(Context, Intent)} to a copy of the intent to simulate it.
+     * <p>
+     * If you want to use {@link #apply(Context, Intent)} based on the return value of this function,
+     * it is recommended to, instead, copy the intent yourself and then {@link #apply(Context, Intent)}
+     * to it, now you have the original intent, the modified one and the return value, without using
+     * {@link #apply(Context, Intent)} twice.
+     */
     public UrlHelperCompanion.Compatibility willNeedHelp(Context context, Intent intent){
         Intent simulation = new Intent(intent);
         return apply(context, simulation);

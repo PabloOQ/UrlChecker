@@ -241,6 +241,12 @@ class OpenDialog extends AModuleDialog {
         // ctabs
         cTabs.apply(intent);
 
+        // Get flags from global data (probably set by flags module, if active)
+        var flags = Flags.getGlobalFlagsNullable(this);
+        if (flags != null) {
+            intent.setFlags(flags);
+        }
+
         // incognito
         var currentUrlHelper = UrlHelperCompanion.CURRENT_PREF(getActivity()).get();
         var intentClone = new Intent(intent);
@@ -251,12 +257,6 @@ class OpenDialog extends AModuleDialog {
             incogCompat = UrlHelperCompanion.Compatibility.notCompatible;
         } else {
             intent = intentClone;
-        }
-
-        // Get flags from global data (probably set by flags module, if active)
-        var flags = Flags.getGlobalFlagsNullable(this);
-        if (flags != null) {
-            intent.setFlags(flags);
         }
 
         // rejection detector: mark as open
