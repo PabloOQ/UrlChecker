@@ -24,38 +24,40 @@ public class UrlHelperService extends AccessibilityService {
     private JavaUtils.TriFunction<AccessibilityNodeInfo, String, String, Boolean> putUrl;
     private ScheduledThreadPoolExecutor executor = new ScheduledThreadPoolExecutor(1);
     private ScheduledFuture<?> task = null;
-    private static AccessibilityService instance = null;
+    private static UrlHelperService instance = null;
 
-    private static AccessibilityService getInstance(){
+    public static UrlHelperService getInstance() {
         return instance;
+    }
+
+    @Override
+    public void onCreate() {
+        super.onCreate();
+        Log.d("ACCESSIBILITY", "Create");
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        Log.d("ACCESSIBILITY", "Destroy");
     }
 
     @Override
     protected void onServiceConnected() {
         super.onServiceConnected();
         instance = this;
+        Log.d("ACCESSIBILITY", "Connect");
     }
 
     @Override
     public boolean onUnbind(Intent intent) {
+        Log.d("ACCESSIBILITY", "Unbind");
         instance = null;
         return super.onUnbind(intent);
     }
 
-    @Override
-    public void onCreate() {
-        super.onCreate();
-        // TODO: REMOVE!
-        // TODO: move this to some other place
-        this.pckg = "com.android.chrome";
-        openService(pckg,
-                "https://github.com/TrianguloY/UrlChecker",
-                Incognito.getAccessibilityFunction("chromium"));
-    }
-
-    public synchronized void openService(String pckg,
-                                          String url,
-                                          JavaUtils.TriFunction<AccessibilityNodeInfo, String,String, Boolean> putUrl) {
+    public synchronized void openService(String url, String pckg,
+                                         JavaUtils.TriFunction<AccessibilityNodeInfo, String, String, Boolean> putUrl) {
         open = true;
 
         this.pckg = pckg;
@@ -93,17 +95,13 @@ public class UrlHelperService extends AccessibilityService {
     public void onAccessibilityEvent(AccessibilityEvent event) {
         // TODO: better accessibility service config, flags and event types
         synchronized (this) {
-            if (open &&
-                    (event.getEventType() == AccessibilityEvent.TYPE_WINDOW_STATE_CHANGED ||
-                            event.getEventType() == AccessibilityEvent.TYPE_WINDOW_CONTENT_CHANGED)) {
-                if (event.getPackageName().toString().equals(pckg)) {
-                    // Get root node of the active window
-                    AccessibilityNodeInfo rootNode = getRootInActiveWindow();
-                    if (rootNode != null) {
-                        if (putUrl.apply(rootNode, pckg, url)) {
-                            // When success, close the service
-                            closeService();
-                        }
+            if (open && event.getPackageName().toString().equals(pckg)) {
+                // Get root node of the active window
+                AccessibilityNodeInfo rootNode = getRootInActiveWindow();
+                if (rootNode != null) {
+                    if (putUrl.apply(rootNode, pckg, url)) {
+                        // When success, close the service
+                        closeService();
                     }
                 }
             }
@@ -112,7 +110,7 @@ public class UrlHelperService extends AccessibilityService {
 
     @Override
     public void onInterrupt() {
-        // Handle interrupt
+        Log.d("ACCESSIBILITY", "Interrupt");
     }
 
     // ---- DEBUG TOOLS ----

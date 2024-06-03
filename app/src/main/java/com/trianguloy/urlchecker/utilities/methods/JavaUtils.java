@@ -140,6 +140,11 @@ public interface JavaUtils {
         void accept(T t, U u);
     }
 
+    @FunctionalInterface
+    interface TriConsumer<T, U, V> {
+        void accept(T t, U u, V v);
+    }
+
     /**
      * java.util.function.Function requires api 24
      */

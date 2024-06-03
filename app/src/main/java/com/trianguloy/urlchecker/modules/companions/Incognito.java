@@ -49,11 +49,7 @@ public class Incognito {
     private static final Map<String, JavaUtils.Function<Intent, Boolean>>
             transform = new HashMap<>();
     private static final Map<String, JavaUtils.TriFunction<AccessibilityNodeInfo, String, String, Boolean>>
-            accessibilityFunctions = new HashMap<>();
-
-    public static JavaUtils.TriFunction<AccessibilityNodeInfo, String, String, Boolean> getAccessibilityFunction(String key){
-        return accessibilityFunctions.get(key);
-    }
+            accessibilityFunction = new HashMap<>();
 
     static {
         // There are 3 functions:
@@ -156,7 +152,7 @@ public class Incognito {
 
             findPackage.put(key, isThis);
             transform.put(key, setIncognito);
-            accessibilityFunctions.put(key, putUrl);
+            accessibilityFunction.put(key, putUrl);
         }
 
     }
@@ -255,18 +251,32 @@ public class Incognito {
         // FIXME: ctabs compatibility
         removeIncognito(intent);
         if (state) {
-            for (var entry : findPackage.entrySet()) {
-                if (entry.getValue().apply(context, intent)) {
-                    // Package can be opened in incognito
+            var key = getKey(context, intent);
+            if (key != null) {
+                // Package can be opened in incognito
 
-                    // Apply transformation, the function also tells us if we will need help
-                    // to input the URL
-                    return transform.get(entry.getKey()).apply(intent) ?
-                            urlNeedsHelp : compatible;
-                }
+                // Apply transformation, the function also tells us if we will need help
+                // to input the URL
+                return transform.get(key).apply(intent) ?
+                        urlNeedsHelp : compatible;
             }
-
         }
         return notCompatible;
+    }
+
+    /**
+     * @return If the app can be opened in incognito, return the key for the dictionaries, null if not
+     */
+    public static String getKey(Context context, Intent intent) {
+        for (var entry : findPackage.entrySet()) {
+            if (entry.getValue().apply(context, intent)) {
+                return entry.getKey();
+            }
+        }
+        return null;
+    }
+
+    public static JavaUtils.TriFunction<AccessibilityNodeInfo, String, String, Boolean> getAccessibilityFunction(String key) {
+        return accessibilityFunction.get(key);
     }
 }
