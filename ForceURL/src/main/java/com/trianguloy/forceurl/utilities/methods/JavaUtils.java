@@ -12,4 +12,32 @@ public interface JavaUtils {
         }
         return null;
     }
+
+    // ---
+    // Everything, starting here, is copied from URLChecker
+    // TODO: move to external library?
+    // ---
+
+    /**
+     * java.util.function.Consumer requires api 24
+     */
+    @FunctionalInterface
+    interface Consumer<T> {
+        void accept(T t);
+    }
+
+    /**
+     * java.util.function.Function requires api 24
+     */
+    @FunctionalInterface
+    interface Function<T, R> {
+        R apply(T t);
+    }
+
+    /**
+     * java.util.function.UnaryOperator requires api 24
+     */
+    @FunctionalInterface
+    interface UnaryOperator<T> extends Function<T, T> {
+    }
 }

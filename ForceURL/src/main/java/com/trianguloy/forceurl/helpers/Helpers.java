@@ -6,7 +6,7 @@ import com.trianguloy.forceurl.helpers.list.ManualBubbleHelper;
 import com.trianguloy.forceurl.helpers.list.NoneHelper;
 import com.trianguloy.forceurl.helpers.list.SemiautoBubbleHelper;
 import com.trianguloy.urlchecker.R;
-import com.trianguloy.urlchecker.utilities.Enums;
+import com.trianguloy.forceurl.utilities.Enums;
 
 public enum Helpers implements Enums.IdEnum, Enums.StringEnum {
     none(0, R.string.cHelper_helperNone, new NoneHelper()),

@@ -10,7 +10,7 @@ import android.widget.Toast;
 
 import com.trianguloy.forceurl.utilities.methods.AndroidUtils;
 import com.trianguloy.urlchecker.R;
-import com.trianguloy.urlchecker.utilities.methods.JavaUtils;
+import com.trianguloy.forceurl.utilities.methods.JavaUtils;
 
 import java.util.ArrayList;
 import java.util.LinkedList;

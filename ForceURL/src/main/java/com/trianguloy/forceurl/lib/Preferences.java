@@ -1,6 +1,6 @@
 package com.trianguloy.forceurl.lib;
 
-import static com.trianguloy.urlchecker.utilities.methods.PackageUtils.startActivity;
+import static com.trianguloy.forceurl.utilities.methods.PackageUtils.startActivity;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -15,8 +15,8 @@ import android.widget.Switch;
 
 import com.trianguloy.forceurl.helpers.Helpers;
 import com.trianguloy.urlchecker.R;
-import com.trianguloy.urlchecker.utilities.generics.GenericPref;
-import com.trianguloy.urlchecker.utilities.methods.JavaUtils;
+import com.trianguloy.forceurl.utilities.generics.GenericPref;
+import com.trianguloy.forceurl.utilities.methods.JavaUtils;
 
 public class Preferences {
     public static GenericPref.Enumeration<Helpers> CURRENT_PREF(Context cntx) {
@@ -80,17 +80,17 @@ class Config {
             boolean timerState;
             boolean storeState;
             switch (helpers){
-                case Helpers.none:
-                case Helpers.accessibilityService:
+                case none:
+                case accessibilityService:
                     timerState = false;
                     storeState = false;
                     break;
-                case Helpers.manualBubble:
+                case manualBubble:
                     timerState = false;
                     storeState = true;
                     break;
-                case Helpers.semiAutoBubble:
-                case Helpers.autoBackground:
+                case semiAutoBubble:
+                case autoBackground:
                 default:
                     timerState = true;
                     storeState = true;
@@ -104,11 +104,11 @@ class Config {
         timer.attachToEditText(timerView, 0);
         views.findViewById(R.id.draw_permissions).setOnClickListener(view -> {
             Intent intent = new Intent(android.provider.Settings.ACTION_MANAGE_OVERLAY_PERMISSION, Uri.parse("package:" + cntx.getPackageName()));
-            PackageUtils.startActivity(intent, 1, cntx);
+            startActivity(intent, 1, cntx);
         });
         views.findViewById(R.id.accessibility_permissions).setOnClickListener(view -> {
             Intent intent = new Intent(android.provider.Settings.ACTION_ACCESSIBILITY_SETTINGS);
-            PackageUtils.startActivity(intent, 1, cntx);
+            startActivity(intent, 1, cntx);
         });
 
         // prepare dialog

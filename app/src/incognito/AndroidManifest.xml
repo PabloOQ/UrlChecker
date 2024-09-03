@@ -5,7 +5,7 @@
 
     <application>
         <service
-            android:name="com.trianguloy.forceurl.forceurllib.services.UrlHelperService"
+            android:name="com.trianguloy.forceurl.services.UrlHelperService"
             android:exported="true"
             android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE">
             <intent-filter>

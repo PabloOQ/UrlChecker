@@ -11,7 +11,7 @@ import android.view.WindowManager.LayoutParams;
 
 import com.trianguloy.forceurl.utilities.methods.AndroidUtils;
 import com.trianguloy.urlchecker.R;
-import com.trianguloy.urlchecker.utilities.methods.JavaUtils;
+import com.trianguloy.forceurl.utilities.methods.JavaUtils;
 
 public class Bubble {
     private View floatView;

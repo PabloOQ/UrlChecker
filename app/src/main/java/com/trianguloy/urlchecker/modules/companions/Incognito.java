@@ -5,7 +5,7 @@ import android.content.Intent;
 import android.view.View;
 import android.widget.ImageButton;
 
-import com.trianguloy.forceurllib.lib.ForceUrl;
+import com.trianguloy.forceurl.lib.ForceUrl;
 import com.trianguloy.urlchecker.BuildConfig;
 import com.trianguloy.urlchecker.R;
 import com.trianguloy.urlchecker.utilities.generics.GenericPref;
