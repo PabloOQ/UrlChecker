@@ -1,15 +1,15 @@
-package com.trianguloy.forceurllib.helpers.list;
+package com.trianguloy.forceurl.forceurllib.helpers.list;
 
 import android.content.Context;
 import android.content.Intent;
 import android.widget.Toast;
 
-import com.trianguloy.forceurllib.data.AccessibilityFunction;
-import com.trianguloy.forceurllib.helpers.AHelper;
-import com.trianguloy.forceurllib.lib.ForceUrl;
-import com.trianguloy.forceurllib.utilities.methods.AndroidUtils;
+import com.trianguloy.forceurl.forceurllib.data.AccessibilityFunction;
+import com.trianguloy.forceurl.forceurllib.helpers.AHelper;
+import com.trianguloy.forceurl.forceurllib.lib.ForceUrl;
+import com.trianguloy.forceurl.forceurllib.utilities.methods.AndroidUtils;
 import com.trianguloy.urlchecker.R;
-import com.trianguloy.forceurllib.services.UrlHelperService;
+import com.trianguloy.forceurl.forceurllib.services.UrlHelperService;
 
 public class AccessibilityServiceHelper implements AHelper {
     @Override

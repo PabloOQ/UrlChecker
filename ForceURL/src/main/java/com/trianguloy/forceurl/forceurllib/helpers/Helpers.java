@@ -1,10 +1,10 @@
-package com.trianguloy.forceurllib.helpers;
+package com.trianguloy.forceurl.forceurllib.helpers;
 
-import com.trianguloy.forceurllib.helpers.list.AccessibilityServiceHelper;
-import com.trianguloy.forceurllib.helpers.list.AutoBackgroundHelper;
-import com.trianguloy.forceurllib.helpers.list.ManualBubbleHelper;
-import com.trianguloy.forceurllib.helpers.list.NoneHelper;
-import com.trianguloy.forceurllib.helpers.list.SemiautoBubbleHelper;
+import com.trianguloy.forceurl.forceurllib.helpers.list.AccessibilityServiceHelper;
+import com.trianguloy.forceurl.forceurllib.helpers.list.AutoBackgroundHelper;
+import com.trianguloy.forceurl.forceurllib.helpers.list.ManualBubbleHelper;
+import com.trianguloy.forceurl.forceurllib.helpers.list.NoneHelper;
+import com.trianguloy.forceurl.forceurllib.helpers.list.SemiautoBubbleHelper;
 import com.trianguloy.urlchecker.R;
 import com.trianguloy.urlchecker.utilities.Enums;
 

@@ -1,4 +1,4 @@
-package com.trianguloy.forceurllib.data;
+package com.trianguloy.forceurl.forceurllib.data;
 
 import android.content.Context;
 import android.content.Intent;

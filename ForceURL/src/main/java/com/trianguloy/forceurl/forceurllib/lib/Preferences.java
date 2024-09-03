@@ -1,4 +1,4 @@
-package com.trianguloy.forceurllib.lib;
+package com.trianguloy.forceurl.forceurllib.lib;
 
 import static com.trianguloy.urlchecker.utilities.methods.PackageUtils.startActivity;
 
@@ -13,7 +13,7 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Switch;
 
-import com.trianguloy.forceurllib.helpers.Helpers;
+import com.trianguloy.forceurl.forceurllib.helpers.Helpers;
 import com.trianguloy.urlchecker.R;
 import com.trianguloy.urlchecker.utilities.generics.GenericPref;
 import com.trianguloy.urlchecker.utilities.methods.JavaUtils;
@@ -80,17 +80,17 @@ class Config {
             boolean timerState;
             boolean storeState;
             switch (helpers){
-                case none:
-                case accessibilityService:
+                case Helpers.none:
+                case Helpers.accessibilityService:
                     timerState = false;
                     storeState = false;
                     break;
-                case manualBubble:
+                case Helpers.manualBubble:
                     timerState = false;
                     storeState = true;
                     break;
-                case semiAutoBubble:
-                case autoBackground:
+                case Helpers.semiAutoBubble:
+                case Helpers.autoBackground:
                 default:
                     timerState = true;
                     storeState = true;
@@ -104,11 +104,11 @@ class Config {
         timer.attachToEditText(timerView, 0);
         views.findViewById(R.id.draw_permissions).setOnClickListener(view -> {
             Intent intent = new Intent(android.provider.Settings.ACTION_MANAGE_OVERLAY_PERMISSION, Uri.parse("package:" + cntx.getPackageName()));
-            startActivity(intent, 1, cntx);
+            PackageUtils.startActivity(intent, 1, cntx);
         });
         views.findViewById(R.id.accessibility_permissions).setOnClickListener(view -> {
             Intent intent = new Intent(android.provider.Settings.ACTION_ACCESSIBILITY_SETTINGS);
-            startActivity(intent, 1, cntx);
+            PackageUtils.startActivity(intent, 1, cntx);
         });
 
         // prepare dialog

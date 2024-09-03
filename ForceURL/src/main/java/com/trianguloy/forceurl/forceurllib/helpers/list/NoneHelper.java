@@ -1,8 +1,8 @@
-package com.trianguloy.forceurllib.helpers.list;
+package com.trianguloy.forceurl.forceurllib.helpers.list;
 
 import android.content.Context;
 
-import com.trianguloy.forceurllib.helpers.AHelper;
+import com.trianguloy.forceurl.forceurllib.helpers.AHelper;
 
 public class NoneHelper implements AHelper {
 

@@ -1,12 +1,12 @@
-package com.trianguloy.forceurllib.lib;
+package com.trianguloy.forceurl.forceurllib.lib;
 
 import android.content.Context;
 import android.content.Intent;
 
-import com.trianguloy.forceurllib.data.Apps;
-import com.trianguloy.forceurllib.data.incognito.forks.Chromium;
-import com.trianguloy.forceurllib.data.incognito.forks.Fenix;
-import com.trianguloy.forceurllib.helpers.Helpers;
+import com.trianguloy.forceurl.forceurllib.data.Apps;
+import com.trianguloy.forceurl.forceurllib.helpers.Helpers;
+import com.trianguloy.forceurl.forceurllib.data.incognito.forks.Chromium;
+import com.trianguloy.forceurl.forceurllib.data.incognito.forks.Fenix;
 
 import java.util.ArrayList;
 import java.util.Arrays;
