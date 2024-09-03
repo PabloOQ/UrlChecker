@@ -1,11 +1,11 @@
-package com.trianguloy.forceurl.forceurllib.helpers.list;
+package com.trianguloy.forceurl.helpers.list;
 
 import android.content.Context;
 
-import com.trianguloy.forceurl.forceurllib.helpers.AHelper;
-import com.trianguloy.forceurl.forceurllib.lib.Preferences;
-import com.trianguloy.forceurl.forceurllib.utilities.ClipboardBorrower;
-import com.trianguloy.forceurl.forceurllib.utilities.Bubble;
+import com.trianguloy.forceurl.helpers.AHelper;
+import com.trianguloy.forceurl.lib.Preferences;
+import com.trianguloy.forceurl.utilities.ClipboardBorrower;
+import com.trianguloy.forceurl.utilities.Bubble;
 
 import java.util.concurrent.ScheduledFuture;
 import java.util.concurrent.ScheduledThreadPoolExecutor;

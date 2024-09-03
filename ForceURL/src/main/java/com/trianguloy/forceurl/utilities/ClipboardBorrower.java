@@ -1,4 +1,4 @@
-package com.trianguloy.forceurl.forceurllib.utilities;
+package com.trianguloy.forceurl.utilities;
 
 import android.content.ClipData;
 import android.content.Context;
@@ -10,8 +10,8 @@ import android.view.WindowManager;
 import android.view.WindowManager.LayoutParams;
 import android.widget.Toast;
 
-import com.trianguloy.forceurl.forceurllib.lib.Preferences;
-import com.trianguloy.forceurl.forceurllib.utilities.methods.AndroidUtils;
+import com.trianguloy.forceurl.lib.Preferences;
+import com.trianguloy.forceurl.utilities.methods.AndroidUtils;
 import com.trianguloy.urlchecker.BuildConfig;
 import com.trianguloy.urlchecker.R;
 

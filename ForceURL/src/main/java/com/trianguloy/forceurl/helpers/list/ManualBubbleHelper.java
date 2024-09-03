@@ -1,10 +1,10 @@
-package com.trianguloy.forceurl.forceurllib.helpers.list;
+package com.trianguloy.forceurl.helpers.list;
 
 import android.content.Context;
 
-import com.trianguloy.forceurl.forceurllib.helpers.AHelper;
-import com.trianguloy.forceurl.forceurllib.utilities.ClipboardBorrower;
-import com.trianguloy.forceurl.forceurllib.utilities.Bubble;
+import com.trianguloy.forceurl.helpers.AHelper;
+import com.trianguloy.forceurl.utilities.ClipboardBorrower;
+import com.trianguloy.forceurl.utilities.Bubble;
 
 public class ManualBubbleHelper implements AHelper {
 

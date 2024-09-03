@@ -1,4 +1,4 @@
-package com.trianguloy.forceurl.forceurllib.utilities;
+package com.trianguloy.forceurl.utilities;
 
 import android.content.Context;
 import android.graphics.PixelFormat;
@@ -9,7 +9,7 @@ import android.view.View;
 import android.view.WindowManager;
 import android.view.WindowManager.LayoutParams;
 
-import com.trianguloy.forceurl.forceurllib.utilities.methods.AndroidUtils;
+import com.trianguloy.forceurl.utilities.methods.AndroidUtils;
 import com.trianguloy.urlchecker.R;
 import com.trianguloy.urlchecker.utilities.methods.JavaUtils;
 

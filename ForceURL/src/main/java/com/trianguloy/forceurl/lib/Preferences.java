@@ -1,4 +1,4 @@
-package com.trianguloy.forceurl.forceurllib.lib;
+package com.trianguloy.forceurl.lib;
 
 import static com.trianguloy.urlchecker.utilities.methods.PackageUtils.startActivity;
 
@@ -13,7 +13,7 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Switch;
 
-import com.trianguloy.forceurl.forceurllib.helpers.Helpers;
+import com.trianguloy.forceurl.helpers.Helpers;
 import com.trianguloy.urlchecker.R;
 import com.trianguloy.urlchecker.utilities.generics.GenericPref;
 import com.trianguloy.urlchecker.utilities.methods.JavaUtils;

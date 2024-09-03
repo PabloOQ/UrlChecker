@@ -1,4 +1,4 @@
-package com.trianguloy.forceurl.forceurllib.services;
+package com.trianguloy.forceurl.services;
 
 import android.accessibilityservice.AccessibilityService;
 import android.content.Context;
@@ -8,7 +8,7 @@ import android.view.accessibility.AccessibilityEvent;
 import android.view.accessibility.AccessibilityNodeInfo;
 import android.widget.Toast;
 
-import com.trianguloy.forceurl.forceurllib.utilities.methods.AndroidUtils;
+import com.trianguloy.forceurl.utilities.methods.AndroidUtils;
 import com.trianguloy.urlchecker.R;
 import com.trianguloy.urlchecker.utilities.methods.JavaUtils;
 

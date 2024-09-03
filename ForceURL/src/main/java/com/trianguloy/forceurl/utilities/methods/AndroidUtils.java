@@ -1,4 +1,4 @@
-package com.trianguloy.forceurl.forceurllib.utilities.methods;
+package com.trianguloy.forceurl.utilities.methods;
 
 import android.content.ClipData;
 import android.content.ClipboardManager;

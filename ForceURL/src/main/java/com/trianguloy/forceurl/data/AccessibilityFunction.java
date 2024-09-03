@@ -1,4 +1,4 @@
-package com.trianguloy.forceurl.forceurllib.data;
+package com.trianguloy.forceurl.data;
 
 import android.view.accessibility.AccessibilityNodeInfo;
 

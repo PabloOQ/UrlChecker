@@ -1,4 +1,4 @@
-package com.trianguloy.forceurl.forceurllib.data.incognito.forks;
+package com.trianguloy.forceurl.data.incognito.forks;
 
 import android.content.ComponentName;
 import android.content.Context;
@@ -6,10 +6,10 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.accessibility.AccessibilityNodeInfo;
 
-import com.trianguloy.forceurl.forceurllib.data.AccessibilityFunction;
-import com.trianguloy.forceurl.forceurllib.data.Apps;
-import com.trianguloy.forceurl.forceurllib.utilities.methods.AndroidUtils;
-import com.trianguloy.forceurl.forceurllib.utilities.methods.JavaUtils;
+import com.trianguloy.forceurl.data.AccessibilityFunction;
+import com.trianguloy.forceurl.data.Apps;
+import com.trianguloy.forceurl.utilities.methods.AndroidUtils;
+import com.trianguloy.forceurl.utilities.methods.JavaUtils;
 
 import java.util.Collections;
 import java.util.HashSet;
