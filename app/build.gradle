@@ -39,6 +39,8 @@ android {
                 .collect { it }.join(', ') // join with commas
         print "Extracted translators: $translators"
         resValue "string", "all_translators", translators // create resource
+
+        buildConfigField("boolean", "IS_INCOGNITO", "false") // default incognito value
     }
 
     buildTypes {
@@ -64,7 +66,6 @@ android {
         // incognito dimension
         base {
             dimension "incognito"
-            buildConfigField("boolean", "IS_INCOGNITO", "false")
         }
         incognito {
             dimension "incognito"
