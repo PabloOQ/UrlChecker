@@ -12,12 +12,38 @@ android {
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"
+
+        // generate buildconfig field with all locales
+        def folder = file("src/main/res") // from this folder
+        def prefix = "values-" // with this prefix
+        def translations = folder.list().toList().stream() // from all files in the folder
+                .filter { it.startsWith(prefix) } // keep those starting with the prefix
+                .filter { file("$folder.path/$it/strings.xml").exists() } // and containing a strings translation
+                .collect { it }
+        def constructor = translations.stream()
+                .map { it.substring(prefix.length()).replace('-r', '-') } // extract the locale code
+                .collect { '"' + it + '"' } // convert as 'string'
+                .join(',') // and concatenate with commas
+        buildConfigField "java.util.List<String>", 'LOCALES', "java.util.List.of(\"en\",$constructor)" // create field
+
+        // generate string resource with all translators
+        def translators = translations.stream() // for all translations
+                .map { file("$folder.path/$it/strings.xml") } // get the xml file
+                .map { new XmlParser().parse(it).find { it.@name == "translators" }?.text() ?: "" } // extract translators
+                .filter { it != "" } // filter empty
+                .flatMap { it.split(';').stream() } // split multiple
+                .map { it.strip() } // trim
+                .filter { it != "TrianguloY" } // remove myself
+                .distinct().sorted() // keep distinct and sort them
+                .collect { it }.join(', ') // join with commas
+        print "Extracted translators: $translators"
+        resValue "string", "all_translators", translators // create resource
     }
 
     buildTypes {
         release {
             minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
     compileOptions {
