@@ -96,5 +96,5 @@ play {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation project(path: ':forceurl');
+    incognitoImplementation project(path: ':forceurl');
 }
