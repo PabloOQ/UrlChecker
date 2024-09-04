@@ -14,7 +14,7 @@ import android.widget.Spinner;
 import android.widget.Switch;
 
 import com.trianguloy.forceurl.helpers.Helpers;
-import com.trianguloy.urlchecker.R;
+import com.trianguloy.forceurl.R;
 import com.trianguloy.forceurl.utilities.generics.GenericPref;
 import com.trianguloy.forceurl.utilities.methods.JavaUtils;
 

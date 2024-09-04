@@ -8,7 +8,7 @@ import com.trianguloy.forceurl.data.AccessibilityFunction;
 import com.trianguloy.forceurl.helpers.AHelper;
 import com.trianguloy.forceurl.lib.ForceUrl;
 import com.trianguloy.forceurl.utilities.methods.AndroidUtils;
-import com.trianguloy.urlchecker.R;
+import com.trianguloy.forceurl.R;
 import com.trianguloy.forceurl.services.UrlHelperService;
 
 public class AccessibilityServiceHelper implements AHelper {

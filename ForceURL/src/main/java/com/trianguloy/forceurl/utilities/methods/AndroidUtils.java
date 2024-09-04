@@ -10,7 +10,7 @@ import android.os.Handler;
 import android.os.Looper;
 import android.widget.Toast;
 
-import com.trianguloy.urlchecker.R;
+import com.trianguloy.forceurl.R;
 
 import java.util.HashSet;
 import java.util.Set;

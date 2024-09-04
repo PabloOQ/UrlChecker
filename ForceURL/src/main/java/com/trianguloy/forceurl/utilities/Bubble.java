@@ -10,7 +10,7 @@ import android.view.WindowManager;
 import android.view.WindowManager.LayoutParams;
 
 import com.trianguloy.forceurl.utilities.methods.AndroidUtils;
-import com.trianguloy.urlchecker.R;
+import com.trianguloy.forceurl.R;
 import com.trianguloy.forceurl.utilities.methods.JavaUtils;
 
 public class Bubble {

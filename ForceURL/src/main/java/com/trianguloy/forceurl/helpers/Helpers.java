@@ -5,7 +5,7 @@ import com.trianguloy.forceurl.helpers.list.AutoBackgroundHelper;
 import com.trianguloy.forceurl.helpers.list.ManualBubbleHelper;
 import com.trianguloy.forceurl.helpers.list.NoneHelper;
 import com.trianguloy.forceurl.helpers.list.SemiautoBubbleHelper;
-import com.trianguloy.urlchecker.R;
+import com.trianguloy.forceurl.R;
 import com.trianguloy.forceurl.utilities.Enums;
 
 public enum Helpers implements Enums.IdEnum, Enums.StringEnum {

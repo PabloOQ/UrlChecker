@@ -9,7 +9,7 @@ import android.view.accessibility.AccessibilityNodeInfo;
 import android.widget.Toast;
 
 import com.trianguloy.forceurl.utilities.methods.AndroidUtils;
-import com.trianguloy.urlchecker.R;
+import com.trianguloy.forceurl.R;
 import com.trianguloy.forceurl.utilities.methods.JavaUtils;
 
 import java.util.ArrayList;
