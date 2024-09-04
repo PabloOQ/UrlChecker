@@ -12,7 +12,7 @@ import android.widget.Toast;
 
 import com.trianguloy.forceurl.lib.Preferences;
 import com.trianguloy.forceurl.utilities.methods.AndroidUtils;
-import com.trianguloy.urlchecker.BuildConfig;
+import com.trianguloy.forceurl.BuildConfig;
 import com.trianguloy.forceurl.R;
 
 public class ClipboardBorrower {

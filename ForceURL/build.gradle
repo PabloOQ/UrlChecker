@@ -42,10 +42,19 @@ android {
 
     buildTypes {
         release {
-            minifyEnabled false
+            minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
+        alpha {
+            initWith(buildTypes.debug)
+            versionNameSuffix '-ALPHA'
+        }
+        evaluation {
+            initWith(buildTypes.debug)
+            versionNameSuffix '-TEST'
+        }
     }
+
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_11
         targetCompatibility JavaVersion.VERSION_11
