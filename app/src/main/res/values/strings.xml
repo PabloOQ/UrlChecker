@@ -341,4 +341,6 @@ This is an advanced version of the 'Queries Remover' module."</string>
     <string name="mChg_updated">The app has been updated.</string>
     <string name="mChg_current">Current version: %s</string>
     <string name="mChg_view">View changes</string>
+    <!-- -->
+    <string name="clipboard_copyError">Error trying to copy to clipboard</string>
 </resources>
